@@ -25,7 +25,7 @@ nodes:
   image: mongo
   extip: false
 
-onInstall:
+onBeforeStartService:
   - adjust-env-ars
           
 actions:
@@ -33,9 +33,5 @@ actions:
     api[cp]: env.control.AddContainerEnvVars
     vars:
       ROOT_URL: http://${env.domain}
-
-  reboot:
-    cmd[cp]: |-
-      init 6
     
 success: /texts/success.md
