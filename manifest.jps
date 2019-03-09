@@ -1,0 +1,30 @@
+version: '1.4.2'
+appVersion: latest
+type: install
+name: RocketChat
+baseUrl: https://raw.githubusercontent.com/jelastic-jps/rocket-chat/master
+logo: /images/rocket.png
+homepage: http://www.laravel.com/
+
+categories:
+- apps/development
+
+description:
+  text: /texts/description.md
+  short: Rocket.Chat is the leading open source team chat software solution
+
+
+nodes:
+- cloudlets: 16
+  nodeGroup: cp
+  image: rocket.chat
+  extip: false
+  links: nosqldb:db
+
+- cloudlets: 16
+  nodeGroup: nosqldb
+  image: mongo
+  extip: false
+
+
+success: /texts/success.md
