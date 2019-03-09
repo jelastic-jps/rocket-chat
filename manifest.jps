@@ -13,33 +13,29 @@ description:
   text: /texts/description.md
   short: Rocket.Chat is the leading open source team chat software solution
 
-
 nodes:
 - cloudlets: 16
   nodeGroup: cp
   image: rocket.chat
   extip: false
   links: nosqldb:db
-  startServiceOnCreation: false
 
 - cloudlets: 16
   nodeGroup: nosqldb
   image: mongo
   extip: false
 
-
 onInstall:
-  - forEach(nodes.cp):
-      adjust-env-ars:
-         nodeId: ${@i.id}
-
+  - adjust-env-ars
+          
 actions:
   adjust-env-ars:
-    api[${this.nodeId}]: env.control.AddContainerEnvVars
+    api[cp]: env.control.AddContainerEnvVars
     vars:
-      ROOT_URL: ${env.domain}
+      ROOT_URL: http://${env.domain}
 
+  reboot:
     cmd[cp]: |-
-    service jelinit start
-
+      init 6
+    
 success: /texts/success.md
