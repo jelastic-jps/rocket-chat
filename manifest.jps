@@ -4,7 +4,7 @@ type: install
 name: RocketChat
 baseUrl: https://raw.githubusercontent.com/jelastic-jps/rocket-chat/master
 logo: /images/rocket.png
-homepage: http://www.laravel.com/
+homepage: https://rocket.chat/
 
 categories:
 - apps/development
