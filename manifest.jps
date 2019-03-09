@@ -20,11 +20,26 @@ nodes:
   image: rocket.chat
   extip: false
   links: nosqldb:db
+  startServiceOnCreation: false
 
 - cloudlets: 16
   nodeGroup: nosqldb
   image: mongo
   extip: false
 
+
+onInstall:
+  - forEach(nodes.cp):
+      adjust-env-ars:
+         nodeId: ${@i.id}
+
+actions:
+  adjust-env-ars:
+    api[${this.nodeId}]: env.control.AddContainerEnvVars
+    vars:
+      ROOT_URL: ${env.domain}
+
+    cmd[cp]: |-
+    service jelinit start
 
 success: /texts/success.md
