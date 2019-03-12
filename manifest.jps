@@ -25,13 +25,18 @@ nodes:
   image: mongo
   extip: false
 
-onBeforeStartService:
-  - adjust-env-ars
+onBeforeStartService[cp]:
+  - adjust-env-vars
+  - setup-env
           
 actions:
-  adjust-env-ars:
+  adjust-env-vars:
     api[cp]: env.control.AddContainerEnvVars
     vars:
       ROOT_URL: http://${env.domain}
+
+  setup-env
+    cmd[cp]:
+      find /app -type f -exec sed -i'' -e 's/localhost:3000/${env.domain}/g'
     
 success: /texts/success.md
