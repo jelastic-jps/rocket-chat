@@ -19,24 +19,23 @@ nodes:
   image: rocket.chat
   extip: false
   links: nosqldb:db
+  startServiceOnCreation: false
 
 - cloudlets: 16
   nodeGroup: nosqldb
   image: mongo
   extip: false
 
-onBeforeStartService[cp]:
+onInstall:
   - adjust-env-vars
-  - setup-env
-          
+  - api: env.control.ExecDockerRunCmd
+    nodeId: ${nodes.cp.first.id} 
+
 actions:
   adjust-env-vars:
     api[cp]: env.control.AddContainerEnvVars
     vars:
       ROOT_URL: http://${env.domain}
 
-  setup-env
-    cmd[cp]:
-      find /app -type f -exec sed -i'' -e 's/localhost:3000/${env.domain}/g'
-    
+
 success: /texts/success.md
