@@ -36,6 +36,7 @@ actions:
     api[cp]: env.control.AddContainerEnvVars
     vars:
       ROOT_URL: http://${env.domain}
+      JELASTIC_PRIORITY_PORTS: 3000
 
 
 success: /texts/success.md
