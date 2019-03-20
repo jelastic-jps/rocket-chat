@@ -3,7 +3,7 @@ appVersion: latest
 type: install
 name: RocketChat
 baseUrl: https://raw.githubusercontent.com/jelastic-jps/rocket-chat/master
-logo: /images/rocket.png
+logo: /images/rocket.png?_r=${fn.random}
 homepage: https://rocket.chat/
 
 categories:
