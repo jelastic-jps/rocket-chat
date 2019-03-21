@@ -1,6 +1,7 @@
 version: '1.4.2'
 appVersion: latest
 type: install
+id: rocket-chat
 name: RocketChat
 baseUrl: https://raw.githubusercontent.com/jelastic-jps/rocket-chat/master
 logo: /images/rocket.png?_r=${fn.random}
