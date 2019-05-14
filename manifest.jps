@@ -17,7 +17,7 @@ description:
 nodes:
 - cloudlets: 16
   nodeGroup: cp
-  image: rocket.chat
+  image: rocket.chat:0.74
   extip: false
   links: nosqldb:db
   startServiceOnCreation: false
