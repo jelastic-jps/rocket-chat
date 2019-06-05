@@ -2,7 +2,7 @@ version: '1.4.2'
 appVersion: latest
 type: install
 id: rocket-chat
-name: RocketChat
+name: Rocket.Chat
 baseUrl: https://raw.githubusercontent.com/jelastic-jps/rocket-chat/master
 logo: /images/rocket.png?_r=${fn.random}
 homepage: https://rocket.chat/
@@ -38,6 +38,5 @@ actions:
     vars:
       ROOT_URL: http://${env.domain}
       JELASTIC_PRIORITY_PORTS: 3000
-
 
 success: /texts/success.md
