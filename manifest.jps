@@ -7,6 +7,9 @@ baseUrl: https://raw.githubusercontent.com/jelastic-jps/rocket-chat/master
 logo: /images/rocket.png?_r=${fn.random}
 homepage: https://rocket.chat/
 
+targetRegions:
+  type: vz7
+
 categories:
 - apps/dev-and-admin-tools
 
