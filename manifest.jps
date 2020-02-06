@@ -1,4 +1,3 @@
-version: '1.4.2'
 appVersion: latest
 type: install
 id: rocket-chat
@@ -20,17 +19,19 @@ description:
 nodes:
 - cloudlets: 16
   nodeGroup: cp
-  image: rocket.chat:0.74
-  extip: false
+  image: rocket.chat:2.4.1
   links: nosqldb:db
   startServiceOnCreation: false
+  env:
+    MONGO_OPLOG_URL: mongodb://db:27017/local
 
 - cloudlets: 16
   nodeGroup: nosqldb
   image: mongo
-  extip: false
+  cmd: mongod --replSet rs01
 
 onInstall:
+  - cmd[nosqldb]: mongo --eval "printjson(rs.initiate())"
   - adjust-env-vars
   - api: env.control.ExecDockerRunCmd
     nodeId: ${nodes.cp.first.id} 
