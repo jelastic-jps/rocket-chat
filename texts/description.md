@@ -1,1 +1,1 @@
-The ultimate Free Open Source Solution for team communications.
+The ultimate Free Open Source Solution for team communications the Rocket.Chat is about to take off to provide you video conferencing, file sharing, voice messaging and it is great for those who prefer full control over their contacts.
