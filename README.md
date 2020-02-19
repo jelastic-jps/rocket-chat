@@ -12,7 +12,7 @@ Click the **DEPLOY TO JELASTIC** button, specify your email address within the w
 
 [![Deploy to Jelastic](https://github.com/jelastic-jps/git-push-deploy/raw/master/images/deploy-to-jelastic.png)](https://jelastic.com/install-application/?manifest=https://raw.githubusercontent.com/jelastic-jps/rocket-chat/master/manifest.jps)
 
-> **Note:** If you are already registered at Jelastic, you can deploy this cluster by importing the  [the package manifest raw link](https://raw.githubusercontent.com/jelastic-jps/rocket-chat/master/manifest.jps) or find Rocket.Chat application in the [Marketplace](https://docs.jelastic.com/marketplace) within the [dashboard](https://docs.jelastic.com/dashboard-guide).  
+> **Note:** If you are already registered at Jelastic, you can deploy this cluster by importing the  [package manifest raw link](https://raw.githubusercontent.com/jelastic-jps/rocket-chat/master/manifest.jps) or find Rocket.Chat application in the [Marketplace](https://docs.jelastic.com/marketplace) within the [dashboard](https://docs.jelastic.com/dashboard-guide).  
 
   
 ## Installation Process
