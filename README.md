@@ -2,9 +2,9 @@
 <img src="images/rocketchat.png" width="200">
 </p>
   
-Rocket.Chat may be installled on Jelastic PaaS which supports Java, PHP, Node.js, Ruby, Python, Docker and Kubernetes, available as public, private on-premise, virtual private, hybrid and multi-cloud.
+Rocket.Chat may be installed on [Jelastic PaaS](https://jelastic.com/) which supports Java, PHP, Node.js, Ruby, Python, Docker and Kubernetes, available as public, private on-premise, virtual private, hybrid and multi-cloud.
 
-It is installed automatically from as an application based on prebuilt Docker containers maintained by Rocket.Chat team
+Rocket.Chat is installed automatically as an application based on prebuilt Docker containers maintained by Rocket.Chat team.
 
 ## Rocket.Chat Deployment to the Cloud
 
