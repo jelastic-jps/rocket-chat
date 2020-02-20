@@ -1,6 +1,5 @@
-
-[![My Image](images/rocketchat.png?classes=float-left)]
-Rocket.Chat is installed automatically as an application based on prebuilt Docker containers on [Jelastic PaaS](https://jelastic.com/) which supports Java, PHP, Node.js, Ruby, Python, Docker and Kubernetes, available as public, private on-premise, virtual private, hybrid and multi-cloud.
+<img align="left" width="150" src="images/rocketchat.png">
+Rocket.Chat is installed automatically as an application based on prebuilt Docker containers on <a href="https://jelastic.com/"></a> which supports Java, PHP, Node.js, Ruby, Python, Docker and Kubernetes, available as public, private on-premise, virtual private, hybrid and multi-cloud.
 
 ## Rocket.Chat Deployment to the Cloud
 
