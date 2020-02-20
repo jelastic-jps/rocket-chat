@@ -40,3 +40,9 @@ Once the deployment is finished, you’ll see an appropriate success pop-up.
  The application is ready to use just press **Open in Browser** button and proceed to admin account setup and to configuration and customization.
 
 For production mode, the installation will require a custom domain and traffic encryption with valid SSL certificate wich can be installed with [Let's Encrypt SSL Add-On](https://jelastic.com/blog/free-ssl-certificates-with-lets-encrypt/). Learn more how to [install Rocket.Chat in Jelastic](https://jelastic.com/blog/install-rocketchat-server/).
+
+The installation process itself looks simple.
+
+<p align="left"> 
+<img src="images/rocketchat.gif" width="1920">
+</p>
