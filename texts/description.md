@@ -1,1 +1,1 @@
-The ultimate Free Open Source Solution for team communications.
+Rocket.Chat is free, unlimited and open source platform for your business needs. Replace email, HipChat & Slack with the ultimate team chat software solution and communicate with your team, share files, chat in real time or switch to video/audio conferencing.
