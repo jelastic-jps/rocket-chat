@@ -17,18 +17,20 @@ description:
   short: Rocket.Chat is the leading open source team chat software solution
 
 nodes:
-- cloudlets: 16
-  nodeGroup: cp
-  image: rocket.chat:2.4.1
-  links: nosqldb:db
-  startServiceOnCreation: false
-  env:
-    MONGO_OPLOG_URL: mongodb://db:27017/local
+  - cloudlets: 16
+    nodeGroup: cp
+    image: rocket.chat:2.4.1
+    links: nosqldb:db
+    startServiceOnCreation: false
+    env:
+      MONGO_OPLOG_URL: mongodb://db:27017/local
 
-- cloudlets: 16
-  nodeGroup: nosqldb
-  image: mongo
-  cmd: mongod --replSet rs01
+  - cloudlets: 16
+    nodeGroup: nosqldb
+    image: mongo
+    cmd: mongod --replSet rs01
+
+skipNodeEmails: true
 
 onInstall:
   - cmd[nosqldb]: mongo --eval "printjson(rs.initiate())"
