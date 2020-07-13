@@ -5,6 +5,8 @@ name: Rocket.Chat
 baseUrl: https://raw.githubusercontent.com/jelastic-jps/rocket-chat/master
 logo: /images/rocket.png?_r=${fn.random}
 homepage: https://rocket.chat/
+globals:
+  db_password: ${fn.password}
 
 targetRegions:
   type: vz7
@@ -17,26 +19,29 @@ description:
   short: Rocket.Chat is the leading open source team chat software solution
 
 nodes:
-  - cloudlets: 16
-    nodeGroup: cp
-    image: rocket.chat:2.4.1
-    links: nosqldb:db
-    startServiceOnCreation: false
-    env:
-      MONGO_OPLOG_URL: mongodb://db:27017/local
+- cloudlets: 16
+  nodeGroup: cp
+  image: rocketchat/rocket.chat:latest
+  links: nosqldb:db
+  startServiceOnCreation: false
 
-  - cloudlets: 16
-    nodeGroup: nosqldb
-    image: mongo
-    cmd: mongod --replSet rs01
+- cloudlets: 16
+  nodeGroup: nosqldb
+  nodeType: mongodb
+  tag: "4.0.10"
+  count: 3
+  password: ${globals.db_password}
+  cluster:
+    password: ${globals.db_password}
 
-skipNodeEmails: true
 
 onInstall:
-  - cmd[nosqldb]: mongo --eval "printjson(rs.initiate())"
   - adjust-env-vars
   - api: env.control.ExecDockerRunCmd
     nodeId: ${nodes.cp.first.id} 
+    
+onAfterClone:
+  - adjust-env-vars
 
 actions:
   adjust-env-vars:
@@ -44,5 +49,7 @@ actions:
     vars:
       ROOT_URL: http://${env.domain}
       JELASTIC_PRIORITY_PORTS: 3000
+      MONGO_OPLOG_URL: "mongodb://admin:${globals.db_password}@${nodes.nosqldb[0].address}:27017,${nodes.nosqldb[1].address}:27017,${nodes.nosqldb[2].address}:27017/local?authSource=admin&replicaSet=rs0"
+      MONGO_URL: "mongodb://admin:${globals.db_password}@${nodes.nosqldb[0].address}:27017,${nodes.nosqldb[1].address}:27017,${nodes.nosqldb[2].address}:27017/rocketchat?authSource=admin&replicaSet=rs0&w=majority"
 
 success: /texts/success.md
