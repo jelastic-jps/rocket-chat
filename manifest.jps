@@ -7,6 +7,7 @@ logo: /images/rocket.png?_r=${fn.random}
 homepage: https://rocket.chat/
 globals:
   db_password: ${fn.password}
+  rocket_chat_version: "3.4.2"
 
 targetRegions:
   type: vz7
@@ -21,7 +22,7 @@ description:
 nodes:
 - cloudlets: 16
   nodeGroup: cp
-  image: rocketchat/rocket.chat:latest
+  image: rocketchat/rocket.chat:${globals.rocket_chat_version}
   links: nosqldb:db
   startServiceOnCreation: false
 
