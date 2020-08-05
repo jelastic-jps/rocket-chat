@@ -14,6 +14,7 @@ targetRegions:
 
 categories:
 - apps/dev-and-admin-tools
+- apps/collaboration
 
 description:
   text: /texts/description.md
