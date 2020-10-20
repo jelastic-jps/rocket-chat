@@ -8,7 +8,7 @@ logo: /images/rocket.png?_r=${fn.random}
 homepage: https://rocket.chat/
 globals:
   db_password: ${fn.password}
-  rocket_chat_version: "3.4.2"
+  rocket_chat_version: "3.7.1"
 
 targetRegions:
   type: vz7
@@ -51,7 +51,7 @@ actions:
     api[cp]: env.control.AddContainerEnvVars
     vars:
       ROOT_URL: http://${env.domain}
-      JELASTIC_PRIORITY_PORTS: 3000
+      JELASTIC_EXPOSE: 3000
       MONGO_OPLOG_URL: "mongodb://admin:${globals.db_password}@${nodes.nosqldb[0].address}:27017,${nodes.nosqldb[1].address}:27017,${nodes.nosqldb[2].address}:27017/local?authSource=admin&replicaSet=rs0"
       MONGO_URL: "mongodb://admin:${globals.db_password}@${nodes.nosqldb[0].address}:27017,${nodes.nosqldb[1].address}:27017,${nodes.nosqldb[2].address}:27017/rocketchat?authSource=admin&replicaSet=rs0&w=majority"
 
