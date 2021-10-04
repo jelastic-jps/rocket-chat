@@ -24,7 +24,7 @@ description:
 nodes:
 - cloudlets: 16
   nodeGroup: cp
-  image: rocketchat/rocket.chat:${globals.rocket_chat_version}
+  image: rocket.chat:${globals.rocket_chat_version}
   links: nosqldb:db
   startServiceOnCreation: false
 
@@ -41,7 +41,8 @@ nodes:
 onInstall:
   - adjust-env-vars
   - api: env.control.ExecDockerRunCmd
-    nodeId: ${nodes.cp.first.id} 
+    nodeId: ${nodes.cp.first.id}
+  - cmd[cp]: while [[ $(curl -o /dev/null -s -w "%{http_code}\n" http://127.0.0.1:3000) != 200 ]] ; do sleep 3; done
     
 onAfterClone:
   - adjust-env-vars
