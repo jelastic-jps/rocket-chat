@@ -46,6 +46,27 @@ onInstall:
     
 onAfterClone:
   - adjust-env-vars
+  
+onAfterStart:
+  - cmd [${nodes.nosqldb.first.id}]: |-
+      counter=0
+      while true
+      do
+        counter=$((counter+1))
+        resp=$(mongo -u admin -p ${globals.db_password} admin --eval 'rs.status()')
+        [[ $resp == *"health\" : 0"* ]] && { sleep 3; } || { echo "cluster is configured"; exit 0; }
+        [[ "$counter" -gt 10 ]] && { echo "cluster is not configured"; exit 0; }
+      done
+  - if (response.out == "cluster is not configured"):
+      script: |-
+        return {
+          result: 2,
+          type: "warning",
+          message: "Mongo cluster is not configured. Please check cluster configuration. [More details](https://jelastic.com/blog/mongodb-auto-clustering/)"
+        };
+  - cmd [cp]: |-
+      service jelinit restart
+      while [[ $(curl -o /dev/null -s -w "%{http_code}\n" http://127.0.0.1:3000) != 200 ]] ; do sleep 3; done
 
 actions:
   adjust-env-vars:
