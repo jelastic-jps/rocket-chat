@@ -31,7 +31,7 @@ nodes:
 - cloudlets: 16
   nodeGroup: nosqldb
   nodeType: mongodb
-  tag: "4.0.10"
+  tag: "4.0.2"
   count: 3
   password: ${globals.db_password}
   cluster:
