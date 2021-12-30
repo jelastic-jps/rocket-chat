@@ -8,7 +8,7 @@ logo: /images/rocket.png?_r=${fn.random}
 homepage: https://rocket.chat/
 globals:
   db_password: ${fn.password}
-  rocket_chat_version: "3.13.2"
+  rocket_chat_version: "4.3.0"
 
 targetRegions:
   type: vz7
