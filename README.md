@@ -1,5 +1,3 @@
-# NOT SUPPORTED
-
 <img align="left" width="150" src="images/rocketchat.png">
 Rocket.Chat is installed automatically as an application based on prebuilt Docker containers on Jelastic PaaS which supports Java, PHP, Node.js, Ruby, Python, Docker and Kubernetes, available as public, private on-premise, virtual private, hybrid and multi-cloud.  
   
